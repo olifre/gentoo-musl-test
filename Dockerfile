@@ -10,4 +10,6 @@ COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 # continue with image build ...
 RUN emerge -qv gdb 
 
+RUN emerge -qv scitokens-cpp 
+
 RUN FEATURES="test" USE="test" emerge -qv scitokens-cpp 
