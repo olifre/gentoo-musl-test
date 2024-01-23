@@ -10,6 +10,11 @@ COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 # continue with image build ...
 #RUN emerge -qv gdb 
 
+RUN emerge -qv wget
+
+RUN mkdir -p /etc/portage/patches/dev-cpp/scitokens-cpp && \
+    wget -O /etc/portage/patches/dev-cpp/scitokens-cpp/fix-vector.patch https://github.com/scitokens/scitokens-cpp/commit/dc23108e79d913eafdce4f36fdbb4f0dbc01a13b.patch
+
 RUN emerge -qv scitokens-cpp 
 
 RUN FEATURES="test" USE="test" CMAKE_CTEST_ARGUMENTS="--verbose" emerge -v scitokens-cpp 
