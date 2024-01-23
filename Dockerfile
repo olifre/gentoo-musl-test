@@ -14,7 +14,9 @@ RUN emerge -qv scitokens-cpp
 
 RUN FEATURES="test" USE="test" CMAKE_CTEST_ARGUMENTS="--verbose" emerge -v scitokens-cpp 
 
-RUN mkdir -p /etc/portage/package.accept_keywords/ && echo "dev-cpp/scitokens-cpp" > /etc/portage/package.accept_keywords/scitokens
+RUN mkdir -p /etc/portage/package.accept_keywords/ && \
+    echo "dev-cpp/scitokens-cpp" > /etc/portage/package.accept_keywords/scitokens && \
+    echo "dev-cpp/nlohmann_json" >> /etc/portage/package.accept_keywords/scitokens
 
 RUN FEATURES="test" USE="test" CMAKE_CTEST_ARGUMENTS="--verbose" emerge -v scitokens-cpp
 
