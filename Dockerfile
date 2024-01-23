@@ -27,4 +27,10 @@ RUN emerge -1quv sys-libs/musl
 
 RUN FEATURES="test" USE="test" CMAKE_CTEST_ARGUMENTS="--verbose" emerge -v scitokens-cpp
 
+RUN echo "sys-devel/binutils" > /etc/portage/package.accept_keywords/binutils && \
+    echo "sys-devel/binutils-config" >> /etc/portage/package.accept_keywords/binutils && \
+RUN emerge -1quv sys-devel/binutils sys-devel/binutils-config
+
+RUN FEATURES="test" USE="test" CMAKE_CTEST_ARGUMENTS="--verbose" emerge -v scitokens-cpp
+
 RUN emerge --info
