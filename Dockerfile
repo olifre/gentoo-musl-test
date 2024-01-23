@@ -13,3 +13,7 @@ RUN emerge -qv gdb
 RUN emerge -qv scitokens-cpp 
 
 RUN FEATURES="test" USE="test" emerge -v scitokens-cpp 
+
+RUN mkdir -p /etc/portage/package.accept_keywords/ && echo "dev-cpp/scitokens-cpp" > /etc/portage/package.accept_keywords/scitokens
+
+RUN FEATURES="test" USE="test" emerge -v scitokens-cpp
