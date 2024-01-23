@@ -12,4 +12,4 @@ RUN emerge -qv gdb
 
 RUN emerge -qv scitokens-cpp 
 
-RUN FEATURES="test" USE="test" emerge -qv scitokens-cpp 
+RUN FEATURES="test" USE="test" emerge -v scitokens-cpp 
